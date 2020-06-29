@@ -1,0 +1,17 @@
+name: "k8s action"
+description: "GitHub action for k8s clusters by `kubectl` commands"
+branding:
+  icon: 'anchor'
+  color: 'blue'
+inputs:
+  kubectl_args:
+    description: "Inputs for kubectl command"
+    required: true
+outputs:
+  kubectl_result:
+    description: "Output of the kubectl command"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.kubectl_args }}
